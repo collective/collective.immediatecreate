@@ -13,15 +13,11 @@
   -->
   <!--<includeDependencies package="." />-->
 
-  <include package=".browser" />
-
-  <include file="permissions.zcml" />
-
   <include file="upgrades.zcml" />
 
   <genericsetup:registerProfile
       name="default"
-      title="collective.immediatecreate"
+      title="Immediate Create"
       directory="profiles/default"
       description="Installs the collective.immediatecreate add-on."
       provides="Products.GenericSetup.interfaces.EXTENSION"
@@ -30,7 +26,7 @@
 
   <genericsetup:registerProfile
       name="uninstall"
-      title="collective.immediatecreate (uninstall)"
+      title="Immediate Create (uninstall)"
       directory="profiles/uninstall"
       description="Uninstalls the collective.immediatecreate add-on."
       provides="Products.GenericSetup.interfaces.EXTENSION"
@@ -43,5 +39,11 @@
       />
 
   <!-- -*- extra stuff goes here -*- -->
+
+  <plone:behavior
+      name="collective.immediatecreate"
+      provides=".behaviors.ICollectiveImmediateCreate"
+      title="Person Fields (AKI)"
+  />
 
 </configure>

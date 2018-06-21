@@ -21,7 +21,7 @@ class CollectiveImmediatecreateLayer(PloneSandboxLayer):
         self.loadZCML(package=collective.immediatecreate)
 
     def setUpPloneSite(self, portal):
-        applyProfile(portal, 'collective.immediatecreate:default')
+        applyProfile(portal, "collective.immediatecreate:default")
 
 
 COLLECTIVE_IMMEDIATECREATE_FIXTURE = CollectiveImmediatecreateLayer()
@@ -29,13 +29,13 @@ COLLECTIVE_IMMEDIATECREATE_FIXTURE = CollectiveImmediatecreateLayer()
 
 COLLECTIVE_IMMEDIATECREATE_INTEGRATION_TESTING = IntegrationTesting(
     bases=(COLLECTIVE_IMMEDIATECREATE_FIXTURE,),
-    name='CollectiveImmediatecreateLayer:IntegrationTesting',
+    name="CollectiveImmediatecreateLayer:IntegrationTesting",
 )
 
 
 COLLECTIVE_IMMEDIATECREATE_FUNCTIONAL_TESTING = FunctionalTesting(
     bases=(COLLECTIVE_IMMEDIATECREATE_FIXTURE,),
-    name='CollectiveImmediatecreateLayer:FunctionalTesting',
+    name="CollectiveImmediatecreateLayer:FunctionalTesting",
 )
 
 
@@ -45,5 +45,5 @@ COLLECTIVE_IMMEDIATECREATE_ACCEPTANCE_TESTING = FunctionalTesting(
         REMOTE_LIBRARY_BUNDLE_FIXTURE,
         z2.ZSERVER_FIXTURE,
     ),
-    name='CollectiveImmediatecreateLayer:AcceptanceTesting',
+    name="CollectiveImmediatecreateLayer:AcceptanceTesting",
 )
