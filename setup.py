@@ -21,7 +21,6 @@ setup(
     classifiers=[
         "Environment :: Web Environment",
         "Framework :: Plone",
-        "Framework :: Plone :: 5.0",
         "Framework :: Plone :: 5.1",
         "Programming Language :: Python",
         "Programming Language :: Python :: 2.7",
@@ -40,19 +39,13 @@ setup(
     zip_safe=False,
     install_requires=[
         # -*- Extra requirements: -*-
-        'plone.api>=1.8.4',
-        'Products.GenericSetup>=1.8.2',
+        'Products.CMFPlone',
         'setuptools',
-        'z3c.jbot',
     ],
     extras_require={
         'test': [
             'plone.app.testing',
-            # Plone KGS does not use this version, because it would break
-            # Remove if your package shall be part of coredev.
-            # plone_coredev tests as of 2016-04-01.
             'plone.testing>=5.0.0',
-            'plone.app.contenttypes',
             'plone.app.robotframework[debug]',
         ],
     },

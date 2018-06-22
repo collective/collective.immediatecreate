@@ -38,12 +38,18 @@
       name="collective.immediatecreate-hiddenprofiles"
       />
 
-  <!-- -*- extra stuff goes here -*- -->
-
   <plone:behavior
       name="collective.immediatecreate"
       provides=".behaviors.ICollectiveImmediateCreate"
-      title="Person Fields (AKI)"
+      title="Immediate Create"
+      description="Creates item immediatly and skip add form. Needs changes in Factory Type Information (ZMI) for this type too!"
+  />
+
+  <!-- traverser -->
+  <adapter
+      name="addimmediate"
+      for="Products.CMFCore.interfaces.IFolderish .interfaces.ICollectiveImmediatecreateLayer"
+      factory=".adding.ImmediateAddViewTraverser"
   />
 
 </configure>

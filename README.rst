@@ -30,7 +30,7 @@ Cancel becomes Delete
 
 Cleanup
     In order to get rid of initially created but never saved nor deleted items,
-    a cleanup script will be provided.
+    a cleanup script is provided.
 
 
 Installation
