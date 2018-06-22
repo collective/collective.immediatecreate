@@ -40,11 +40,16 @@
       name="collective.immediatecreate-hiddenprofiles"
       />
 
+  <!-- behavior and indexer -->
   <plone:behavior
       name="collective.immediatecreate"
       provides=".behaviors.ICollectiveImmediateCreate"
       title="Immediate Create"
       description="Creates item immediatly and skip add form. Needs changes in Factory Type Information (ZMI) for this type too!"
+  />
+  <adapter
+      factory=".indexer.index_in_immediate_creation"
+      name="in_immediate_creation"
   />
 
   <!-- traverser -->
