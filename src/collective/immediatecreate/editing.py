@@ -43,7 +43,9 @@ class ImmediateEditForm(DexterityExtensibleForm, form.EditForm):
 
     @button.buttonAndHandler(_dx(u"Cancel"), name="cancel")
     def handleCancel(self, action):
-        api.portal.show_message(_dx(u"Add New Item operation cancelled"), self.request)
+        api.portal.show_message(
+            _dx(u"Add New Item operation cancelled"), self.request
+        )
         self.request.response.redirect(self.nextURL())
         notify(EditCancelledEvent(self.context))
 
