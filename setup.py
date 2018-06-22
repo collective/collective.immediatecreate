@@ -39,7 +39,7 @@ setup(
     zip_safe=False,
     install_requires=[
         # -*- Extra requirements: -*-
-        'Products.CMFPlone',
+        'Products.CMFPlone>=5.1',
         'setuptools',
     ],
     extras_require={

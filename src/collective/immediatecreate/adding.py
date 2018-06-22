@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 from plone import api
+from plone.protect.interfaces import IDisableCSRFProtection
 from plone.protect.utils import addTokenToUrl
-from plone.protect.utils import safeWrite
 from Products.Five.browser import BrowserView
 from zExceptions import Unauthorized
+from zope.interface import alsoProvides
 from zope.interface import implementer
 from zope.location.interfaces import LocationError
 from zope.traversing.interfaces import ITraversable
@@ -26,9 +27,8 @@ class ImmediateAddView(BrowserView):
             collective_immediatecreate="initial",
         )
         newcontent.indexObject()
-        safeWrite(newcontent, self.request)
-        url = newcontent.absolute_url() + "/immediate-edit"
-        url = newcontent.absolute_url() + "/edit"
+        alsoProvides(self.request, IDisableCSRFProtection)
+        url = newcontent.absolute_url() + "/editimmediate"
         url = addTokenToUrl(url)
         self.request.response.redirect(url)
 

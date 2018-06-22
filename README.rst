@@ -6,6 +6,10 @@
 collective.immediatecreate
 ==========================
 
+.. image:: https://img.shields.io/pypi/v/collective.immediatecreate.svg
+    :target: https://pypi.org/project/collective.immediatecreate/
+    :alt: Latest PyPI version
+
 .. image:: https://travis-ci.org/collective/collective.immediatecreate.svg?branch=master
     :target: https://travis-ci.org/collective/collective.immediatecreate
 
@@ -13,7 +17,9 @@ collective.immediatecreate
     :target: https://github.com/ambv/black
 
 Folderish types are designed to be able to contain content.
-However when you use `collective.folderishtypes` (or custom folderish types) in Plone and you simply add a folderish item and edit it immediately after adding you will see that all the assets you upload through the editor will be stored as siblings of the item you just created. This is due to the fact that the new item does not "exist" yet, that is, before it has been saved once.
+However when you use ``collective.folderishtypes`` (or custom folderish types) in Plone and you simply add a folderish item and edit it immediately after adding you will see that all the assets you upload through the editor will be stored as siblings of the item you just created. This is due to the fact that the new item does not "exist" yet, that is, before it has been saved once.
+
+This addon creates the object immediately, so items can be stored inside.
 
 Features
 --------
@@ -29,7 +35,7 @@ Verification
 
 Cancel becomes Delete
     When the user interacts with the item after it has been automatically created the "cancel" button is turned into a "delete" button.
-    If the delete button is clicked, the item will be discarded.
+    If the cancel button is clicked, the item will be discarded.
 
 Cleanup
     In order to get rid of initially created but never saved nor deleted items,
@@ -58,12 +64,39 @@ Activation
 ----------
 
 After installation nothing changed.
+The feature must be activated for a type first.
 To make a type available for immediate add two chnaged need to be done:
 
 1. Add the behavior `collective.immediatecreate` to the type in the control panel under `Dexterity Content Types`
 
 2. Modify the Factory Type Information using the ZMI under `portal_types`.
    Change the value of  `Add view URL (Expression)` to `++add-immediate++TYPENAME`.
+
+Configuration using GenericSetup
+--------------------------------
+
+In a policy profile in filesystem the a Type Information under `profiles/default/types/TYPENAME.xml` can be edited to make a type aware of immediate create::
+
+    <?xml version="1.0"?>
+    <object
+        i18n:domain="plone"
+        meta_type="Dexterity FTI"
+        name="MyFolderishType"
+        xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+
+        <!-- ... SNIP ... -->
+
+        <property name="add_view_expr">string:${folder_url}/++addimmediate++MyFolderishType</property>
+
+        <!-- ... SNIP ... -->
+
+        <!-- Enabled behaviors -->
+        <property name="behaviors" purge="False">
+          <element value="collective.immediatecreate" />
+        </property>
+
+        <!-- ... SNIP ... -->
+    </object>
 
 
 Source Code
