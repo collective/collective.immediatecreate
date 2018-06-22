@@ -48,6 +48,10 @@ class ImmediateEditForm(DexterityExtensibleForm, form.EditForm):
         )
         self.request.response.redirect(self.nextURL())
         notify(EditCancelledEvent(self.context))
+        parent = aq_parent(self.context)
+        api.content.delete(obj=self.context)
+        self.context = parent
+        self.request.response.redirect(self.nextURL())
 
     def nextURL(self):
         view_url = self.context.absolute_url()
