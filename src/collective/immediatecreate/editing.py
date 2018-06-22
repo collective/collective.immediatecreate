@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from Acquisition import aq_parent
 from collective.immediatecreate import _
 from plone import api
 from plone.dexterity.browser.base import DexterityExtensibleForm
@@ -15,6 +16,7 @@ from z3c.form import button
 from z3c.form import form
 from zExceptions import Redirect
 from zope.component import getUtility
+from zope.container.interfaces import INameChooser
 from zope.event import notify
 from zope.interface import classImplements
 
@@ -31,14 +33,17 @@ class ImmediateEditForm(DexterityExtensibleForm, form.EditForm):
             return
         self.applyChanges(data)
         self.context.collective_immediatecreate = "created"
-        # api.content.rename
-        api.portal.show_message(self.success_message)
+        # rename
+        chooser = INameChooser(aq_parent(self.context))
+        new_id = chooser.chooseName(None, self.context)
+        api.content.rename(obj=self.context, new_id=new_id)
+        api.portal.show_message(self.success_message, self.request)
         self.request.response.redirect(self.nextURL())
         notify(EditFinishedEvent(self.context))
 
     @button.buttonAndHandler(_dx(u"Cancel"), name="cancel")
     def handleCancel(self, action):
-        api.portal.show_message(_dx(u"Add New Item operation cancelled"))
+        api.portal.show_message(_dx(u"Add New Item operation cancelled"), self.request)
         self.request.response.redirect(self.nextURL())
         notify(EditCancelledEvent(self.context))
 
