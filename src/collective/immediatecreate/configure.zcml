@@ -59,6 +59,7 @@
       factory=".adding.ImmediateAddViewTraverser"
   />
 
+  <!-- edit immediate -->
   <browser:page
       for="plone.dexterity.interfaces.IDexterityContent"
       layer=".interfaces.ICollectiveImmediatecreateLayer"
@@ -66,4 +67,14 @@
       class=".editing.ImmediateEditView"
       permission="cmf.AddPortalContent"
   />
+
+  <!-- cleanup -->
+  <browser:page
+      for="*"
+      layer=".interfaces.ICollectiveImmediatecreateLayer"
+      name="immediatecreate-cleanup-leftovers"
+      class=".cleanup.CleanupImmediateLeftovers"
+      permission="cmf.ManagePortal"
+  />
+
 </configure>
