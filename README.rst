@@ -6,6 +6,9 @@
 collective.immediatecreate
 ==========================
 
+.. image:: https://travis-ci.org/collective/collective.immediatecreate.svg?branch=master
+    :target: https://travis-ci.org/collective/collective.immediatecreate
+
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
     :target: https://github.com/ambv/black
 
