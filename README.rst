@@ -17,7 +17,8 @@ collective.immediatecreate
     :target: https://github.com/ambv/black
 
 Folderish types are designed to be able to contain content.
-However when you use ``collective.folderishtypes`` (or custom folderish types) in Plone and you simply add a folderish item and edit it immediately after adding you will see that all the assets you upload through the editor will be stored as siblings of the item you just created. This is due to the fact that the new item does not "exist" yet, that is, before it has been saved once.
+However, when you use ``collective.folderishtypes`` (or amy custom folderish types) in Plone and you simply add a folderish item and edit it immediately after adding you will see that all the assets you upload through the editor will be stored as siblings of the item you just created.
+This is due to the fact that the new item does not "exist" yet, that is, before it has been saved once.
 
 This addon creates the object immediately, so items can be stored inside.
 
@@ -27,7 +28,7 @@ Features
 ID/ Shortname
     A valid (and intermediate) ID will be generated after "add <Type>..." has been clicked, so the item can be persisted.
     However, the ID changes when the user saves the content for the first time so the Plone's default behavior is retained.
-    However, this feature might not be wanted by some users and is configureable.
+    However, this feature might not be wanted by some users and is configureable (todo).
 
 Verification
     Additionally the drop-in-feature covers the usecase when an added type has mandatory fields or custom verification.
@@ -45,7 +46,7 @@ Cleanup
 Installation
 ------------
 
-Install collective.immediatecreate by adding it to your buildout::
+Install ``collective.immediatecreate`` by adding it to your buildout::
 
     [buildout]
 
@@ -57,7 +58,7 @@ Install collective.immediatecreate by adding it to your buildout::
 
 and then running ``bin/buildout``
 
-Restart Plone and install it in control panel under addons.
+Restart Plone and install ``Immediate Create`` in control panel under addons.
 
 
 Activation
@@ -70,7 +71,7 @@ To make a type available for immediate add two chnaged need to be done:
 1. Add the behavior `collective.immediatecreate` to the type in the control panel under `Dexterity Content Types`
 
 2. Modify the Factory Type Information using the ZMI under `portal_types`.
-   Change the value of  `Add view URL (Expression)` to `++add-immediate++TYPENAME`.
+   Change the value of  `Add view URL (Expression)` to `++addimmediate++TYPENAME`.
 
 Configuration using GenericSetup
 --------------------------------
@@ -97,6 +98,14 @@ In a policy profile in filesystem the a Type Information under `profiles/default
 
         <!-- ... SNIP ... -->
     </object>
+
+Cleanup
+-------
+
+ A cleanup script can be called as Manager user.
+ It removes all stalled creations older than two hours.
+ It is named ``@@immediatecreate-cleanup-leftovers``.
+ You may want to use a cron service of your choice to call it recurring.
 
 
 Source Code
