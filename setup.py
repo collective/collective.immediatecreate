@@ -15,7 +15,7 @@ long_description = '\n\n'.join([
 setup(
     name='collective.immediatecreate',
     version='1.0a2.dev0',
-    description="Create an dexterity item immediatly and skip add form.",
+    description="Create dexterity items immediatly and skips add form.",
     long_description=long_description,
     # Get more from https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
