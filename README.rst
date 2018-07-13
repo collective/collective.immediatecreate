@@ -102,10 +102,10 @@ In a policy profile in filesystem the a Type Information under `profiles/default
 Cleanup
 -------
 
- A cleanup script can be called as Manager user.
- It removes all stalled creations older than two hours.
- It is named ``@@immediatecreate-cleanup-leftovers``.
- You may want to use a cron service of your choice to call it recurring.
+A cleanup script can be called as Manager user.
+It removes all stalled creations older than two hours.
+It is named ``@@immediatecreate-cleanup-leftovers``.
+You may want to use a cron service of your choice to call it recurring.
 
 
 Source Code
