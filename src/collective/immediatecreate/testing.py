@@ -22,6 +22,14 @@ class CollectiveImmediatecreateLayer(PloneSandboxLayer):
 
     def setUpPloneSite(self, portal):
         applyProfile(portal, "collective.immediatecreate:default")
+        fti = portal.portal_types.Folder
+        fti.manage_changeProperties(
+            add_view_expr='string:${folder_url}/++addimmediate++Folder'
+        )
+        behaviors = list(fti.getProperty('behaviors'))
+        behaviors += ['plone.richtext', 'collective.immediatecreate']
+        behaviors = tuple(behaviors)
+        fti.manage_changeProperties(behaviors=behaviors)
 
 
 COLLECTIVE_IMMEDIATECREATE_FIXTURE = CollectiveImmediatecreateLayer()
