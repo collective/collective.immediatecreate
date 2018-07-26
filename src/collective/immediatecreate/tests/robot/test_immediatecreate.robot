@@ -65,7 +65,7 @@ Scenario: Bild in Ordner
 		and Click Link  css=nav.autotoc-nav > a#tinymce-autotoc-autotoc-1
 		wait until element is visible  css=div.col-md-9
 		and Execute Javascript  dzoption = $(".upload-area")[0].dropzone.options;dzoption.forceFallback = true;$(".upload-area")[0].dropzone.destroy();$(".upload-area").dropzone(dzoption)
-		and Choose File  css=div.dz-fallback input[type=file]  /home/lisa/Dokumente/test_image.jpg
+		and Choose File  css=div.dz-fallback input[type=file]  ${CURDIR}/test_image.jpg
     and Execute Javascript  $('.upload-area form').ajaxSubmit()
 		Then Click Link  css=nav.autotoc-nav > a#tinymce-autotoc-autotoc-0
 		and Click Link  xpath=//fieldset[@data-linktype='image']//div[@class='pattern-relateditems-container']//a[@href='/new-folder' and @class='crumb']
