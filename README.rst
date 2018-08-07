@@ -66,7 +66,7 @@ Activation
 
 After installation nothing changed.
 The feature must be activated for a type first.
-To make a type available for immediate add two chnaged need to be done:
+To make a type available for immediate create, two changes need to be done:
 
 1. Add the behavior `collective.immediatecreate` to the type in the control panel under `Dexterity Content Types`
 
