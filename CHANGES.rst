@@ -5,6 +5,7 @@ Changelog
 1.0a2 (unreleased)
 ------------------
 
+- fixed locking [iham]
 - robot test added [llisa123]
 
 
