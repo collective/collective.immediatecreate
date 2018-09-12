@@ -1,8 +1,13 @@
 Changelog
 =========
 
+1.0a3 (2018-09-12)
+------------------
 
-1.0a2 (unreleased)
+- Nothing changed yet.
+
+
+1.0a2 (2018-09-12)
 ------------------
 
 - fixed locking [iham]
