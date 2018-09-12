@@ -2,6 +2,7 @@
 from Acquisition import aq_parent
 from collective.immediatecreate import _
 from plone import api
+from plone.app.lockingbehavior.behaviors import ILocking
 from plone.dexterity.browser.base import DexterityExtensibleForm
 from plone.dexterity.events import EditBegunEvent
 from plone.dexterity.events import EditCancelledEvent
@@ -9,6 +10,7 @@ from plone.dexterity.events import EditFinishedEvent
 from plone.dexterity.i18n import MessageFactory as _dx
 from plone.dexterity.interfaces import IDexterityEditForm
 from plone.dexterity.interfaces import IDexterityFTI
+from plone.locking.interfaces import ILockable
 from plone.protect.utils import addTokenToUrl
 from plone.registry.interfaces import IRegistry
 from plone.z3cform import layout
@@ -74,6 +76,12 @@ class ImmediateEditForm(DexterityExtensibleForm, form.EditForm):
             url = addTokenToUrl(url)
             raise Redirect(url)
         self.portal_type = self.context.portal_type
+
+        if ILocking.providedBy(self.context):
+            lockable = ILockable(self.context)
+            if lockable.locked():
+                lockable.unlock()
+
         super(ImmediateEditForm, self).update()
 
         # fire the edit begun only if no action was executed
