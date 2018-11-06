@@ -1,15 +1,12 @@
 # -*- coding: utf-8 -*-
 """Setup tests for this package."""
-from collective.immediatecreate.testing import (
-    COLLECTIVE_IMMEDIATECREATE_INTEGRATION_TESTING,
-)
-from plone.app.testing import setRoles
-from plone.app.testing import TEST_USER_ID
-
-from zope.component import getGlobalSiteManager
-
 from collective.immediatecreate.events import IImmediateAddedEvent
 from collective.immediatecreate.events import ImmediateAddedEvent
+from collective.immediatecreate.testing import COLLECTIVE_IMMEDIATECREATE_INTEGRATION_TESTING  # noqa I001
+from plone.app.testing import setRoles
+from plone.app.testing import TEST_USER_ID
+from zope.component import getGlobalSiteManager
+
 import unittest
 
 
@@ -75,4 +72,3 @@ class TestAdding(unittest.TestCase):
                 ImmediateAddedEvent,
             ],
         )
-

@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from collective.immediatecreate.events import ImmediateAddedEvent
 from plone import api
 from plone.protect.interfaces import IDisableCSRFProtection
 from plone.protect.utils import addTokenToUrl
@@ -9,8 +10,6 @@ from zope.interface import alsoProvides
 from zope.interface import implementer
 from zope.location.interfaces import LocationError
 from zope.traversing.interfaces import ITraversable
-
-from collective.immediatecreate.events import ImmediateAddedEvent
 
 
 class ImmediateAddView(BrowserView):
