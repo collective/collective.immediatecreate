@@ -4,10 +4,13 @@ from plone.protect.interfaces import IDisableCSRFProtection
 from plone.protect.utils import addTokenToUrl
 from Products.Five.browser import BrowserView
 from zExceptions import Unauthorized
+from zope.event import notify
 from zope.interface import alsoProvides
 from zope.interface import implementer
 from zope.location.interfaces import LocationError
 from zope.traversing.interfaces import ITraversable
+
+from collective.immediatecreate.events import ImmediateAddedEvent
 
 
 class ImmediateAddView(BrowserView):
@@ -26,6 +29,7 @@ class ImmediateAddView(BrowserView):
             safe_id=True,
             collective_immediatecreate="initial",
         )
+        notify(ImmediateAddedEvent(newcontent))
         newcontent.indexObject()
         alsoProvides(self.request, IDisableCSRFProtection)
         url = newcontent.absolute_url() + "/editimmediate"

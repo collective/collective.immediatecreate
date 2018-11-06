@@ -6,6 +6,10 @@ from collective.immediatecreate.testing import (
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 
+from zope.component import getGlobalSiteManager
+
+from collective.immediatecreate.events import IImmediateAddedEvent
+from collective.immediatecreate.events import ImmediateAddedEvent
 import unittest
 
 
@@ -51,3 +55,24 @@ class TestAdding(unittest.TestCase):
         self.assertEqual(
             self.portal["new-folder"].collective_immediatecreate, "initial"
         )
+
+    def test_event_handler(self):
+        sm = getGlobalSiteManager()
+        firedEvents = []
+
+        def recordEvent(event):
+            firedEvents.append(event.__class__)
+
+        sm.registerHandler(recordEvent, (IImmediateAddedEvent, ))
+
+        setRoles(self.portal, TEST_USER_ID, ["Contributor", "Editor"])
+        view = self.portal.restrictedTraverse("++addimmediate++Folder")
+        view()
+
+        self.assertItemsEqual(
+            firedEvents,
+            [
+                ImmediateAddedEvent,
+            ],
+        )
+

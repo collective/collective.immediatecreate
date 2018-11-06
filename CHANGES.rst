@@ -4,7 +4,8 @@ Changelog
 1.0a3 (2018-09-12)
 ------------------
 
-- Nothing changed yet.
+- added ImmediateAddedEvent.
+  [iham]
 
 
 1.0a2 (2018-09-12)
