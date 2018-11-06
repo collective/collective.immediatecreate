@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Setup tests for this package."""
 from collective.immediatecreate.testing import (
-    COLLECTIVE_IMMEDIATECREATE_INTEGRATION_TESTING
+    COLLECTIVE_IMMEDIATECREATE_INTEGRATION_TESTING,
 )
 from plone import api
 from plone.app.testing import setRoles
@@ -29,7 +29,7 @@ class TestSetup(unittest.TestCase):
     def test_browserlayer(self):
         """Test that ICollectiveImmediatecreateLayer is registered."""
         from collective.immediatecreate.interfaces import (
-            ICollectiveImmediatecreateLayer
+            ICollectiveImmediatecreateLayer,
         )
         from plone.browserlayer import utils
 
@@ -59,7 +59,7 @@ class TestUninstall(unittest.TestCase):
     def test_browserlayer_removed(self):
         """Test that ICollectiveImmediatecreateLayer is removed."""
         from collective.immediatecreate.interfaces import (
-            ICollectiveImmediatecreateLayer
+            ICollectiveImmediatecreateLayer,
         )
         from plone.browserlayer import utils
 

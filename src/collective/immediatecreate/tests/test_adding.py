@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Setup tests for this package."""
 from collective.immediatecreate.testing import (
-    COLLECTIVE_IMMEDIATECREATE_INTEGRATION_TESTING
+    COLLECTIVE_IMMEDIATECREATE_INTEGRATION_TESTING,
 )
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
