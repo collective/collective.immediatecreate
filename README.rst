@@ -122,7 +122,7 @@ This package uses the `black coding style <https://github.com/ambv/black/>`_ wit
 Support
 -------
 
-Maintainers are `Jens Klein <mailto:jk@kleinundpartner.at>`_, `Georg Bernhard <mailto:G.Bernhard@akbild.ac.at>`_ and the BlueDynamics Alliance developer team.
+Maintainers are `Jens Klein <mailto:jk@kleinundpartner.at>`_, `Gogo Bernhard <mailto:G.Bernhard@akbild.ac.at>`_, `Markus Hilbert <mailto:markus.hilbert@iham.at>`_ and the BlueDynamics Alliance developer team.
 We appreciate any contribution and if a release is needed to be done on pypi, please just contact one of us.
 We also offer commercial support if any training, coaching, integration or adaptions are needed.
 
