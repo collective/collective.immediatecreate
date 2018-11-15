@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """Setup tests for this package."""
-from collective.immediatecreate.testing import COLLECTIVE_IMMEDIATECREATE_INTEGRATION_TESTING  # noqa I001
+from collective.immediatecreate.testing import (
+    COLLECTIVE_IMMEDIATECREATE_INTEGRATION_TESTING,
+)  # noqa I001
 from plone import api
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID

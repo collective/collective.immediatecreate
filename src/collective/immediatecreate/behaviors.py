@@ -9,4 +9,4 @@ class ICollectiveImmediateCreate(Interface):
     Also FTI needs the add information to make this work!
     """
 
-    immediate_creation_status = Attribute(u"Was this item initially saved?")
+    collective_immediatecreate = Attribute(u"Was this item initially saved?")

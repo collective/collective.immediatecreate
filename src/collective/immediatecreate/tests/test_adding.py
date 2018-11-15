@@ -2,7 +2,9 @@
 """Setup tests for this package."""
 from collective.immediatecreate.events import IImmediateAddedEvent
 from collective.immediatecreate.events import ImmediateAddedEvent
-from collective.immediatecreate.testing import COLLECTIVE_IMMEDIATECREATE_INTEGRATION_TESTING  # noqa I001
+from collective.immediatecreate.testing import (
+    COLLECTIVE_IMMEDIATECREATE_INTEGRATION_TESTING,
+)  # noqa I001
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from zope.component import getGlobalSiteManager
@@ -60,15 +62,10 @@ class TestAdding(unittest.TestCase):
         def recordEvent(event):
             firedEvents.append(event.__class__)
 
-        sm.registerHandler(recordEvent, (IImmediateAddedEvent, ))
+        sm.registerHandler(recordEvent, (IImmediateAddedEvent,))
 
         setRoles(self.portal, TEST_USER_ID, ["Contributor", "Editor"])
         view = self.portal.restrictedTraverse("++addimmediate++Folder")
         view()
 
-        self.assertItemsEqual(
-            firedEvents,
-            [
-                ImmediateAddedEvent,
-            ],
-        )
+        self.assertItemsEqual(firedEvents, [ImmediateAddedEvent])
