@@ -36,9 +36,9 @@ install:
   - bin/buildout -Nc test.cfg buildout:download-cache=downloads code-analysis:return-status-codes=True
 script:
   - bin/code-analysis
-  - bin/test --all
+  - xvfb-run --server-args="-screen 0 1280x1024x24" bin/test --all
 after_success:
-  - bin/createcoverage --all
+  - xvfb-run --server-args="-screen 0 1280x1024x24" bin/createcoverage --all
   - bin/pip install coverage
   - bin/python -m coverage.pickle2json
   - pip install coveralls
