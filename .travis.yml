@@ -27,6 +27,7 @@ before_script:
   - unzip chromedriver_linux64.zip -d chromedriver
   - export PATH=$PATH:`pwd`/chromedriver
   - google-chrome --version
+  - export CHROME_BIN=google-chrome
   - chromedriver -v
 
 install:
@@ -36,9 +37,9 @@ install:
   - bin/buildout -Nc test.cfg buildout:download-cache=downloads code-analysis:return-status-codes=True
 script:
   - bin/code-analysis
-  - xvfb-run --server-args="-screen 0 1280x1024x24" bin/test --all
+  - bin/test --all
 after_success:
-  - xvfb-run --server-args="-screen 0 1280x1024x24" bin/createcoverage --all
+  - bin/createcoverage --all
   - bin/pip install coverage
   - bin/python -m coverage.pickle2json
   - pip install coveralls
