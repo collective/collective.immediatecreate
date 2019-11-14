@@ -17,7 +17,7 @@ collective.immediatecreate
     :target: https://github.com/ambv/black
 
 Folderish types are designed to be able to contain content.
-However, when you use ``collective.folderishtypes`` (or amy custom folderish types) in Plone and you simply add a folderish item and edit it immediately after adding you will see that all the assets you upload through the editor will be stored as siblings of the item you just created.
+However, when you use ``collective.folderishtypes`` (or any custom folderish types) in Plone and you simply add a folderish item and edit it immediately after adding you will see that all the assets you upload through the editor will be stored as siblings of the item you just created.
 This is due to the fact that the new item does not "exist" yet, that is, before it has been saved once.
 
 This addon creates the object immediately, so items can be stored inside.
