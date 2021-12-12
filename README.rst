@@ -17,8 +17,8 @@ collective.immediatecreate
     :target: https://github.com/ambv/black
 
 Folderish types are designed to be able to contain content.
-However, when you use ``collective.folderishtypes`` (or any custom folderish types) in Plone and you simply add a folderish item and edit it immediately after adding you will see that all the assets you upload through the editor will be stored as siblings of the item you just created.
-This is due to the fact that the new item does not "exist" yet, that is, before it has been saved once.
+When you use ``collective.folderishtypes`` (or any custom folderish types) in Plone and you simply add a folderish item on edit (like an image in TinyMCE), then  after adding you will see that all the assets you upload through the editor will be stored as siblings of the item you just created.
+This is due to the fact that the new item does not "exist" yet - it is just an add-form - that is, before it has been saved once.
 
 This addon creates the object immediately, so items can be stored inside.
 
@@ -28,7 +28,7 @@ Features
 ID/ Shortname
     A valid (and intermediate) ID will be generated after "add <Type>..." has been clicked, so the item can be persisted.
     However, the ID changes when the user saves the content for the first time so the Plone's default behavior is retained.
-    However, this feature might not be wanted by some users and is configureable (todo).
+    This feature might not be wanted by some users and is configureable (todo).
 
 Verification
     Additionally the drop-in-feature covers the usecase when an added type has mandatory fields or custom verification.
@@ -46,12 +46,12 @@ Cleanup
 Installation
 ------------
 
-Install ``collective.immediatecreate`` by adding it to your buildout::
+Install ``collective.immediatecreate`` by adding it to your buildout:
+
+.. code-block:: INI
 
     [buildout]
-
-    ...
-
+    # ...
     eggs =
         collective.immediatecreate
 
@@ -65,7 +65,7 @@ Activation
 ----------
 
 After installation nothing changed.
-The feature must be activated for a type first.
+The feature must be activated for a content-type first.
 To make a type available for immediate create, two changes need to be done:
 
 1. Add the behavior `collective.immediatecreate` to the type in the control panel under `Dexterity Content Types`
@@ -76,28 +76,30 @@ To make a type available for immediate create, two changes need to be done:
 Configuration using GenericSetup
 --------------------------------
 
-In a policy profile in filesystem the a Type Information under `profiles/default/types/TYPENAME.xml` can be edited to make a type aware of immediate create::
+In a policy profile in filesystem the a Type Information under `profiles/default/types/TYPENAME.xml` can be edited to make a type aware of immediate create:
 
-    <?xml version="1.0"?>
-    <object
-        i18n:domain="plone"
-        meta_type="Dexterity FTI"
-        name="MyFolderishType"
-        xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+.. code-block:: XML
 
-        <!-- ... SNIP ... -->
+   <?xml version="1.0"?>
+   <object
+     i18n:domain="plone"
+     meta_type="Dexterity FTI"
+     name="MyFolderishType"
+     xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
-        <property name="add_view_expr">string:${folder_url}/++addimmediate++MyFolderishType</property>
+     <!-- ... SNIP ... -->
 
-        <!-- ... SNIP ... -->
+     <property name="add_view_expr">string:${folder_url}/++addimmediate++MyFolderishType</property>
 
-        <!-- Enabled behaviors -->
-        <property name="behaviors" purge="False">
-          <element value="collective.immediatecreate" />
-        </property>
+     <!-- ... SNIP ... -->
 
-        <!-- ... SNIP ... -->
-    </object>
+     <!-- Enabled behaviors -->
+     <property name="behaviors" purge="False">
+       <element value="collective.immediatecreate" />
+     </property>
+
+     <!-- ... SNIP ... -->
+   </object>
 
 Cleanup
 -------
