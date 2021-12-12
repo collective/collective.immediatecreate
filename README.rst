@@ -10,8 +10,8 @@ collective.immediatecreate
     :target: https://pypi.org/project/collective.immediatecreate/
     :alt: Latest PyPI version
 
-.. image:: https://travis-ci.org/collective/collective.immediatecreate.svg?branch=master
-    :target: https://travis-ci.org/collective/collective.immediatecreate
+.. image:: https://github.com/collective/collective.immediatecreate/actions/workflows/test.yml/badge.svg
+    :target: https://github.com/collective/collective.immediatecreate/actions/workflows/test.yml
 
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
     :target: https://github.com/ambv/black
