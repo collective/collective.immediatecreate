@@ -4,24 +4,14 @@
 *.mo
 *.py?
 *.swp
+*-mxdev.txt
 # dirs
-bin/
-buildout-cache/
-develop-eggs/
-eggs/
-htmlcov/
-include/
-lib/
-local/
-parts/
-src/*
-test.plone_addon/
-var/
+instance/
+venv/
+.make-sentinels/
 # files
-.installed.cfg
-.mr.developer.cfg
+.installed.txt
 .python-version
-lib64
 log.html
 output.xml
 pip-selfcheck.json

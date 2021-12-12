@@ -14,16 +14,16 @@ long_description = '\n\n'.join([
 
 setup(
     name='collective.immediatecreate',
-    version='1.0a3',
+    version='2.0',
     description="Create dexterity items immediatly and skips add form.",
     long_description=long_description,
-    # Get more from https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
         "Environment :: Web Environment",
         "Framework :: Plone",
-        "Framework :: Plone :: 5.1",
+        "Framework :: Plone :: Addon",
+        "Framework :: Plone :: 6.0",
         "Programming Language :: Python",
-        "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3.9",
         "Operating System :: OS Independent",
         "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
     ],
@@ -38,8 +38,7 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        # -*- Extra requirements: -*-
-        'Products.CMFPlone>=5.1',
+        'Products.CMFPlone>=6.0.0a2',
         'setuptools',
     ],
     extras_require={
