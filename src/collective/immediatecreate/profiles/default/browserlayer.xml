@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <layers>
-  <layer
-      name="collective.immediatecreate"
-      interface="collective.immediatecreate.interfaces.ICollectiveImmediatecreateLayer"
-      />
+  <layer interface="collective.immediatecreate.interfaces.ICollectiveImmediatecreateLayer"
+         name="collective.immediatecreate"
+  />
 </layers>
