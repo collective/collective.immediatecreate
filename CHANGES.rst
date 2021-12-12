@@ -1,6 +1,12 @@
 Changelog
 =========
 
+2.0 (unreleased)
+================
+
+- Towards Plone 6, Python 3 (only).
+  [jensens]
+
 1.0a3 (2018-11-07)
 ------------------
 

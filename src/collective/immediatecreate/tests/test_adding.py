@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Setup tests for this package."""
 from collective.immediatecreate.events import IImmediateAddedEvent
 from collective.immediatecreate.events import ImmediateAddedEvent

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from collective.immediatecreate.testing import (
     COLLECTIVE_IMMEDIATECREATE_ACCEPTANCE_TESTING,
 )

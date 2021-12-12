@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from collective.immediatecreate.events import ImmediateAddedEvent
 from plone import api
 from plone.protect.interfaces import IDisableCSRFProtection
@@ -14,7 +13,7 @@ from zope.traversing.interfaces import ITraversable
 
 class ImmediateAddView(BrowserView):
     def __init__(self, context, request, fti):
-        super(ImmediateAddView, self).__init__(context, request)
+        super().__init__(context, request)
         self.fti = fti
 
     def __call__(self):
@@ -24,7 +23,7 @@ class ImmediateAddView(BrowserView):
         newcontent = api.content.create(
             container=self.context,
             type=self.fti.getId(),
-            id="new-{0:s}".format(self.fti.getId()),
+            id=f"new-{self.fti.getId():s}",
             safe_id=True,
             collective_immediatecreate="initial",
         )
@@ -37,7 +36,7 @@ class ImmediateAddView(BrowserView):
 
 
 @implementer(ITraversable)
-class ImmediateAddViewTraverser(object):
+class ImmediateAddViewTraverser:
 
     """Immediate add view traverser."""
 

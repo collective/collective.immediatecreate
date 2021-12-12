@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from .behaviors import ICollectiveImmediateCreate
 from plone.indexer.decorator import indexer
 

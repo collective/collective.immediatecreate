@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Setup tests for this package."""
 from collective.immediatecreate.testing import (
     COLLECTIVE_IMMEDIATECREATE_INTEGRATION_TESTING,

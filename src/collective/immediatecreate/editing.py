@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from Acquisition import aq_parent
 from collective.immediatecreate import _
 from plone import api
@@ -25,9 +24,9 @@ from zope.interface import classImplements
 
 class ImmediateEditForm(DexterityExtensibleForm, form.EditForm):
 
-    success_message = _(u"New content saved")
+    success_message = _("New content saved")
 
-    @button.buttonAndHandler(_dx(u"Save"), name="save")
+    @button.buttonAndHandler(_dx("Save"), name="save")
     def handleApply(self, action):
         data, errors = self.extractData()
         if errors:
@@ -43,9 +42,9 @@ class ImmediateEditForm(DexterityExtensibleForm, form.EditForm):
         self.request.response.redirect(self.nextURL())
         notify(EditFinishedEvent(self.context))
 
-    @button.buttonAndHandler(_dx(u"Cancel"), name="cancel")
+    @button.buttonAndHandler(_dx("Cancel"), name="cancel")
     def handleCancel(self, action):
-        api.portal.show_message(_dx(u"Add New Item operation cancelled"), self.request)
+        api.portal.show_message(_dx("Add New Item operation cancelled"), self.request)
         self.request.response.redirect(self.nextURL())
         notify(EditCancelledEvent(self.context))
         parent = aq_parent(self.context)
@@ -80,14 +79,14 @@ class ImmediateEditForm(DexterityExtensibleForm, form.EditForm):
             if lockable.locked():
                 lockable.unlock()
 
-        super(ImmediateEditForm, self).update()
+        super().update()
 
         # fire the edit begun only if no action was executed
         if len(self.actions.executedActions) == 0:
             notify(EditBegunEvent(self.context))
 
     def updateActions(self):
-        super(ImmediateEditForm, self).updateActions()
+        super().updateActions()
 
         if "save" in self.actions:
             self.actions["save"].addClass("context")
@@ -102,7 +101,7 @@ class ImmediateEditForm(DexterityExtensibleForm, form.EditForm):
     @property
     def label(self):
         type_name = self.fti.Title()
-        return _(u"Add ${name}", mapping={"name": type_name})
+        return _("Add ${name}", mapping={"name": type_name})
 
 
 ImmediateEditView = layout.wrap_form(ImmediateEditForm)
