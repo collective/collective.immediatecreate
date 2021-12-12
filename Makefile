@@ -293,14 +293,3 @@ clean-instance:  ## remove instance configuration (keeps data)
 .PHONY: clean
 clean:  clean-venv clean-pyc clean-make clean-instance   ## clean all (except local database and pip installed packages)
 
-##############################################################################
-# DOCKER/CONTAINER
-
-# this needs a Dockerfile, which is not provided by plone-kickstarter
-.PHONY: build-image
-build-image:  ## Build Docker Image
-ifneq ("$(wildcard Dockerfile)", "")
-	@docker build . -t $(IMAGE_NAME) -f Dockerfile
-else
-	@echo "$(ERROR_COLOR)A 'Dockerfile' is required to build an image.$(NO_COLOR)"
-endif
