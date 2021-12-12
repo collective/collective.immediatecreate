@@ -68,4 +68,4 @@ class TestAdding(unittest.TestCase):
         view = self.portal.restrictedTraverse("++addimmediate++Folder")
         view()
 
-        self.assertItemsEqual(firedEvents, [ImmediateAddedEvent])
+        self.assertEqual(firedEvents, [ImmediateAddedEvent])
