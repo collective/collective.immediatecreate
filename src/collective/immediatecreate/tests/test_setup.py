@@ -34,9 +34,7 @@ class TestSetup(unittest.TestCase):
         )
         from plone.browserlayer import utils
 
-        self.assertIn(
-            ICollectiveImmediatecreateLayer, utils.registered_layers()
-        )
+        self.assertIn(ICollectiveImmediatecreateLayer, utils.registered_layers())
 
 
 class TestUninstall(unittest.TestCase):
@@ -64,6 +62,4 @@ class TestUninstall(unittest.TestCase):
         )
         from plone.browserlayer import utils
 
-        self.assertNotIn(
-            ICollectiveImmediatecreateLayer, utils.registered_layers()
-        )
+        self.assertNotIn(ICollectiveImmediatecreateLayer, utils.registered_layers())

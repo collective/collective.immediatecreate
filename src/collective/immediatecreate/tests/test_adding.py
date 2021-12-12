@@ -13,8 +13,7 @@ import unittest
 
 
 class TestAdding(unittest.TestCase):
-    """Test that collective.immediatecreate adding traverse and view creates.
-    """
+    """Test that collective.immediatecreate adding traverse and view creates."""
 
     layer = COLLECTIVE_IMMEDIATECREATE_INTEGRATION_TESTING
 

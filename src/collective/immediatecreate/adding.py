@@ -39,8 +39,7 @@ class ImmediateAddView(BrowserView):
 @implementer(ITraversable)
 class ImmediateAddViewTraverser(object):
 
-    """Immediate add view traverser.
-    """
+    """Immediate add view traverser."""
 
     def __init__(self, context, request):
         self.context = context
