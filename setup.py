@@ -16,7 +16,7 @@ long_description = "\n\n".join(
 
 setup(
     name="collective.immediatecreate",
-    version="2.0",
+    version="2.0.0",
     description="Create dexterity items immediatly and skips add form.",
     long_description=long_description,
     classifiers=[

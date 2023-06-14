@@ -1,8 +1,8 @@
 Changelog
 =========
 
-2.0 (unreleased)
-----------------
+2.0.0 (2023-06-14)
+------------------
 
 - Towards Plone 6, Python 3 (only).
   [jensens]
