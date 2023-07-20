@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.0.1 (unreleased)
+2.0.1 (2023-07-20)
 ------------------
 
 - Fix cancel button on form validation if immediate create for has a validation error.
