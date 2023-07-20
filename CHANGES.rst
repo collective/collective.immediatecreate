@@ -4,7 +4,8 @@ Changelog
 2.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix cancel button on form validation if immediate create for has a validation error.
+  [jensens]
 
 
 2.0.0 (2023-06-14)
