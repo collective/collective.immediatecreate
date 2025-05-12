@@ -2,7 +2,6 @@ from Acquisition import aq_parent
 from collective.immediatecreate import _
 from plone import api
 from plone.app.lockingbehavior.behaviors import ILocking
-from plone.app.z3cform.views import BootstrapActions
 from plone.dexterity.browser.base import DexterityExtensibleForm
 from plone.dexterity.events import EditBegunEvent
 from plone.dexterity.events import EditCancelledEvent
@@ -23,7 +22,7 @@ from zope.event import notify
 from zope.interface import classImplements
 
 
-class ImmediateEditForm(DexterityExtensibleForm, BootstrapActions, form.EditForm):
+class ImmediateEditForm(DexterityExtensibleForm, form.EditForm):
 
     success_message = _("New content saved")
 

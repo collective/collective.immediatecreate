@@ -4,8 +4,8 @@ Changelog
 2.0.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Fixes for Plone 6.1
+  [jensens]
 
 2.0.1 (2023-07-20)
 ------------------
