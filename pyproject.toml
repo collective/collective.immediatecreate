@@ -1,0 +1,63 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "collective.immediatecreate"
+version = "3.0.0.dev0"
+description = "Create dexterity items immediately and skips add form."
+readme = "README.rst"
+license = "GPL-2.0"
+authors = [
+    { name = "Jens W. Klein", email = "jk@kleinundpartner.at" },
+]
+keywords = [
+    "Plone",
+    "Python",
+]
+classifiers = [
+    "Environment :: Web Environment",
+    "Framework :: Plone",
+    "Framework :: Plone :: 6.1",
+    "Framework :: Plone :: Addon",
+    "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+dependencies = [
+    "Products.CMFPlone>=6.1.0",
+]
+
+[project.optional-dependencies]
+test = [
+    "plone.app.robotframework[debug]",
+    "plone.app.testing",
+    "plone.testing>=5.0.0",
+]
+
+[project.urls]
+Homepage = "https://pypi.python.org/pypi/collective.immediatecreate"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/collective"]
+
+[tool.isort]
+profile = "plone"
+
+[tool.check-manifest]
+ignore = [
+    "*.cfg",
+    ".coveragerc",
+    ".editorconfig",
+    ".gitattributes",
+    "bootstrap-buildout.py",
+]
